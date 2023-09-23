@@ -1,0 +1,461 @@
+:root {
+  color-scheme: light dark;
+  /* both supported */
+}
+
+/*FONTS*/
+@import url("https://p.typekit.net/p.css?s=1&k=edr8qnl&ht=tk&f=13464&a=57907006&app=typekit&e=css");
+
+@font-face {
+  font-family: "Freight Text Pro";
+  src: url("https://use.typekit.net/af/ac6334/000000000000000000012059/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/ac6334/000000000000000000012059/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/ac6334/000000000000000000012059/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "GT Sectra";
+  src: url("assets/GT-Sectra-Fine-Bold.woff");
+}
+
+/*TOKENS*/
+body {
+  --white: #fff;
+  --black: #0f1713;
+  --light: rgb(236, 255, 244);
+  --dark: rgb(0, 73, 57);
+  --accent-clr: #a9e6bf;
+
+  --purple: #5857f0;
+  --lavender: #9493ff;
+  --yellow: #efff63;
+
+  --bg-clr: var(--light);
+  --text-clr: var(--dark);
+
+  --bulb: var(--white);
+  --bulb-hover: var(--accent-clr);
+  --bulb-stroke: var(--dark);
+
+  --link-clr: var(--dark);
+  --link-hvr-bg-clr: var(--dark);
+  --link-hvr-txt-clr: var(--white);
+
+  --glow-clr: var(--yellow);
+  --glow-hover-clr: var(--white)
+
+  --geo-border: 1px solid var(--accent-clr);
+  --geo-transition: transition: border-color 300ms ease;
+
+  /*font tokens*/
+  --serif: "Freight Text Pro", Georgia, "Times New Roman", Times, serif;
+  --sans: "Karla", Helvetica, sans-serif;
+  --display: "GT Sectra", Georgia, serif;
+}
+
+body.dark-mode {
+    --bg-clr: var(--black);
+    --text-clr: var(--light);
+
+    --bulb: var(--black);
+    --bulb-hover: var(--dark);
+    --bulb-stroke: var(--light);
+
+  --link-clr: var(--accent-clr);
+  --link-hvr-bg-clr: var(--light);
+  --link-hvr-txt-clr: var(--dark);
+
+
+  --glow-clr: var(--black);
+  --glow-hover-clr: var(--lavender);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+}
+
+/*MAIN CSS*/
+
+body {
+  font-size: 1em;
+  letter-spacing: 0.03em;
+  color: var(--text-clr);
+  background-color: var(--bg-clr);
+  transition: background-color 100ms ease-out;
+  font-family: var(--sans);
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2em 0;
+}
+
+.page-title {
+  font-size: 0.75em;
+  font-family: var(--sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  align-self: flex-end;
+  padding-bottom: 24px;
+}
+
+.page-title::before {
+  content: "\2766";
+  padding-right: 10px;
+}
+
+.email::before {
+  content: "\2709";
+  font-size: 20px;
+  padding-right: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 5rem;
+  grid-row-gap: 1rem;
+  justify-content: center;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.div3 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.div4 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.illo {
+  width: 12vw;
+}
+
+.raquel-b {
+  font-family: var(--display);
+  font-size: 6vw;
+  line-height: 0.8;
+  margin-bottom: 0.38em;
+}
+
+.lastname {
+  margin-left: 14px;
+}
+
+.subtitle {
+  color: var(--subtitle-clr);
+  font-family: var(--sans);
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 2em;
+  width: 10em;
+  padding-right: 0.25em;
+  z-index: 1;
+}
+
+.sub-head {
+  font-family: var(--serif);
+  font-size: 1.2vw;
+  line-height: 1.4;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.body-text {
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.05em;
+  line-height: 1.6;
+  padding-bottom: 24px;
+}
+
+/*DARKMODE SWITCHER*/
+
+.theme-toggle {
+position: absolute;
+top: 0;
+right: 25%;
+}
+
+button {
+    background-color: transparent;
+    width: 4em;
+    border: none;
+    outline: none;
+    text-align: center;
+    z-index: 1;
+}
+
+.bulb-text {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: .74em;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 6em;
+    height: 4em;
+    fill: var(--bulb-stroke);
+    position: relative;
+    left: -1.3em;
+    top: -2.2em;
+}
+
+.toggle-theme {
+    will-change: transform;
+    transition: 250ms ease-in-out;
+    position: relative;
+}
+
+.toggle-theme:hover {
+    transform: translateY(-5px);
+}
+
+.toggle-theme #bulb-2 {
+  filter: drop-shadow(0px 0px 10px var(--glow-clr));
+}
+
+.toggle-theme:hover #bulb-2 {
+  filter: drop-shadow(0px 0px 10px var(--glow-hover-clr));
+}
+
+.toggle-theme:focus .bulb-text,
+.toggle-theme:hover .bulb-text {
+  display: block;
+}
+
+/* 
+.toggle-theme:active {
+fill: var(--bulb-hover)
+} */
+
+.toggle-theme::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
+
+.bulb-text {
+  display: none;
+}
+
+
+#bulb {
+    fill: var(--bulb);
+    stroke-width: 3px;
+    stroke: var(--bulb-stroke);
+}
+
+#string {
+    stroke-width: 4px;
+    stroke: var(--bulb-stroke);
+    z-index: -1;
+}
+
+#bulb-top {
+    fill: var(--bulb-stroke);
+}
+
+/* GEOMETRIC */
+
+.geo-container {
+    position: relative;
+    display: inline;
+}
+
+.geo {
+    position: relative;
+    margin: auto;
+    top: 415px;
+    left: 25px;
+    height: 100px;
+    width: 300px;
+    display: block;
+    z-index: -1;
+}
+
+.geo-lines {
+    background-color: transparent;
+    border-bottom: var(--geo-border);
+    border-right: 1px solid transparent;
+    transition: var(--geo-transition);
+
+}
+
+.horizontal-line {
+    position: absolute;
+    width: 900px;
+    height: 2px;
+    top: 10%;
+    left: 5%;
+}
+
+.vertical-line {
+    position: absolute;
+    width: 250px;
+    height: 2px;
+    top: 100%;
+    left: -4.5%;
+    transform: rotate(90deg);
+}
+
+.diagonal-line {
+    position: absolute;
+    width: 200px;
+    height: 2px;
+    top: 80%;
+    left: 27.5%;
+    transform: rotate(45deg);
+}
+
+.circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 12%;
+    left: 37%;
+    background: transparent;
+    border: var(--geo-border);
+    border-radius: 50%;
+    transition: var(--geo-transition);
+}
+
+LINKS
+
+ul, .links {
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+}
+
+.link {
+  font-family: var(--sans);
+  letter-spacing: 0.05em;
+  margin-right: 20px;
+  line-height: 1.4;
+  padding: 0.2em 0;
+  /* transition: ease-in 200ms; */
+}
+li {
+  margin: 20px;
+}
+
+main a,
+.faux-link {
+  color: var(--link-clr);
+  text-decoration: none;
+  padding: 0 0.2em;
+
+  background-image: linear-gradient(var(--bg-clr), var(--bg-clr)),
+    linear-gradient(var(--link-clr), var(--link-clr)),
+    linear-gradient(var(--accent-clr), var(--accent-clr));
+    background-size: 20px 1px, 100% 1px, 0 1px;
+    background-position: calc(20px * -1) 100%, 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms ease-in-out, background- 400ms ease-in-out;
+}
+
+a:hover,
+.faux-link:hover {
+  background-size: 20px 1px, 0 1px, 100% 1px;
+  background-position: calc(100% + 20px) 100%, 100% 100%, 0 100%;
+  text-decoration: none;
+}
+
+a:focus,
+.faux-link:focus {
+  background: linear-gradient(135deg, var(--text-clr) 80%, var(--text-clr) 40%);
+  color: var(--link-hvr-txt-clr);
+  outline: none;
+  padding: 0 0.2em;
+  text-decoration: none;
+  transition: background-position none;
+}
+
+.artie img {
+  position: relative;
+  margin: 0 auto;
+  display: none;
+  max-width: 11em;
+}
+
+.artie:hover img,
+.artie:focus img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 5 auto;
+}
+
+@media (max-width: 1200px){
+
+.grid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.div1 {
+  grid-area: auto;
+}
+.div2 {
+  grid-area: auto;
+}
+.div3 {
+  grid-area: auto;
+}
+.div4 {
+  grid-area: auto;
+}
+
+.illo {
+  width: 50%;
+}
+
+.artie:hover img,
+.artie:focus img {
+  position: absolute;
+  top: 1200px;
+  right: 0;
+  margin: 0 auto;
+}
+
+.sub-head {
+  font-size: 1.2em;
+  padding-bottom: 1em;
+}
+
+.links {
+  flex-wrap: wrap;
+}
+
+}
